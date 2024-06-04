@@ -5,11 +5,13 @@
   </script>
   
   <main>
+    {#if $isLoggedIn}
     <div class="welcome-message">
       <h1>Bienvenido a nuestra plataforma de actividades</h1>
       <p>Descubre una amplia gama de actividades al aire libre, culturales, y más para disfrutar al máximo tu tiempo libre.</p>
       <button on:click={() => push('/actividades')}>Explora nuestras actividades</button>
     </div>
+    {/if}
     <Carousel images={["/img1.jpg", "/img2.jpg", "/img3.jpg"]} />
   </main>
   

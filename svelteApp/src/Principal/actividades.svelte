@@ -9,8 +9,8 @@
         fetchParks();
     });
   </script>
-  <Carousel images={["/img1.jpg", "/img2.jpg", "/img3.jpg"]} />
 <main>
+  <Carousel images={["/img1.jpg", "/img2.jpg", "/img3.jpg"]} />
 
     {#if $isLoading}
       <p>Loading parks...</p>
