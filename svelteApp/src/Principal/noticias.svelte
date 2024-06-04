@@ -1,8 +1,11 @@
 <script>
     import { onMount } from 'svelte';
-    import { fetchEvents, events, isLoading, errorMessage } from '../api';
+    import { fetchEvents, parks, events, isLoading, errorMessage } from '../api';
 
-    onMount(fetchEvents);
+
+    onMount(() => {
+      fetchEvents(parks);
+    });
   </script>
   
   {#if $isLoading}

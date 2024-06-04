@@ -3,13 +3,15 @@
     import ParkDetail from '../Componentes/parques.svelte';
     import { onMount } from "svelte";
     import {filteredParks } from '../stores'; 
+    import Carousel from '../Componentes/carrusel.svelte';
 
     onMount(() => {
         fetchParks();
     });
   </script>
-  
-  <main>
+  <Carousel images={["/img1.jpg", "/img2.jpg", "/img3.jpg"]} />
+<main>
+
     {#if $isLoading}
       <p>Loading parks...</p>
     {:else if $errorMessage}

@@ -1,7 +1,6 @@
 //Hecho con ayuda de chat GPT, y en base a documentación de https://www.nps.gov/subjects/developer/api-documentation.htm#/parks/getPark
 import { writable } from "svelte/store";
 let API_KEY = import.meta.env.VITE_API_KEY;
-console.log(API_KEY);
 
 export const parks = writable([]);
 export const isLoading = writable(false);

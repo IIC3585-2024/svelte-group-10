@@ -130,6 +130,7 @@
       padding: 20px;
       border: 1px solid #ccc;
       border-radius: 8px;
+      background-color: white;
     }
   
     .park-header {
