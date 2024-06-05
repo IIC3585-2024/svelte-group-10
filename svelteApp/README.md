@@ -1,6 +1,8 @@
 # App outdoor
 Incluye actividades al aire libre como de patrimonio (museos, exposiciones, etc). Se sacó la información desde la api `https://www.nps.gov/subjects/developer/index.htm`
 
+El link de la página es: [https://svelteapp-b2a9f.web.app/]
+
 Es importante crear una api key en caso de querer probarlo en local. Para ello crear una llave desde la api, y crear un `.env` con el siguiente formato: 
 
 ```js

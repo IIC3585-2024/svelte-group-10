@@ -6,7 +6,11 @@ export const parks = writable([]);
 export const isLoading = writable(false);
 export const errorMessage = writable("");
 
-export const events = writable([]);
+export const articles = writable({});
+export const totalArticles = writable(0);
+
+export const itemsPerPage = 5; 
+
 
 
 export async function fetchParks() {
@@ -29,25 +33,25 @@ export async function fetchParks() {
   }
 }
 
-  export async function fetchEvents(parkCode) {
-    const apiKey = API_KEY; 
-    const url = `https://developer.nps.gov/api/v1/events?parkCode=${parkCode}&api_key=${apiKey}`;
+export async function fetchArticles(page = 1) {
+  isLoading.set(true);
+  errorMessage.set("");
+  const apiKey = API_KEY;
+  const start = (page - 1) * itemsPerPage;
+  const url = `https://developer.nps.gov/api/v1/articles?start=${start}&limit=${itemsPerPage}&api_key=${apiKey}`;
 
-    isLoading.set(true);
-    errorMessage.set('');
-    
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error('Failed to fetch events');
-      }
-
-      const data = await response.json();
-      events.set(data.data);
-    } catch (error) {
-      console.error('Error:', error);
-      errorMessage.set('Failed to load events. Please try again later.');
-    } finally {
-      isLoading.set(false);
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error('Failed to fetch articles');
     }
+    const data = await response.json();
+    articles.set(data.data);
+    totalArticles.set(data.total); // Asigna el total de artículos desde la respuesta de la API
+  } catch (error) {
+    console.error('Error:', error);
+    errorMessage.set('Failed to load articles. Please try again later.');
+  } finally {
+    isLoading.set(false);
   }
+}

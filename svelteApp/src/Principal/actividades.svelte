@@ -28,8 +28,8 @@
   <style>
   .grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Crea dos columnas de igual tamaño */
-    gap: 20px; /* Espacio entre los elementos de la grilla */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; 
     padding: 20px;
   }
   </style>
